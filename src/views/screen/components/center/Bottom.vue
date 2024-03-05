@@ -12,29 +12,40 @@
 <script setup lang='ts'>
 import { ref, onMounted } from 'vue'
 import { ElIcon } from 'element-plus'
+/**
+ * @author: anngreens
+ * 一个可以实现数字牌效果的依赖
+ */
 import Vue3Odometer from 'vue3-odometer'
 import 'odometer/themes/odometer-theme-default.css'
 import { KnifeFork, IceTea, Coffee, IceCream, Dessert, GobletFull } from '@element-plus/icons-vue'
 import SeamlessScroll from '@/components/SeamlessScroll.vue'
-const iconObj = {KnifeFork, IceTea, Coffee, IceCream, Dessert, GobletFull}
+const iconObj = { KnifeFork, IceTea, Coffee, IceCream, Dessert, GobletFull }
 const actions = ref([
-  { color: 'rgb(24, 144, 255)', icon: 'KnifeFork', value: 0 },
-  { color: 'rgb(255, 192, 105)', icon: 'IceTea', value: 0 },
-  { color: 'rgb(92, 219, 211)', icon: 'Coffee', value: 0 },
-  { color: 'rgb(179, 127, 235)', icon: 'IceCream', value: 0 },
-  { color: 'rgb(255, 133, 192)', icon: 'Dessert', value: 0 },
-  { color: 'rgb(255, 214, 102)', icon: 'GobletFull', value: 0 },
 	{ color: 'rgb(24, 144, 255)', icon: 'KnifeFork', value: 0 },
-  { color: 'rgb(255, 192, 105)', icon: 'IceTea', value: 0 },
-  { color: 'rgb(92, 219, 211)', icon: 'Coffee', value: 0 },
-  { color: 'rgb(179, 127, 235)', icon: 'IceCream', value: 0 },
-  { color: 'rgb(255, 133, 192)', icon: 'Dessert', value: 0 },
+	{ color: 'rgb(255, 192, 105)', icon: 'IceTea', value: 0 },
+	{ color: 'rgb(92, 219, 211)', icon: 'Coffee', value: 0 },
+	{ color: 'rgb(179, 127, 235)', icon: 'IceCream', value: 0 },
+	{ color: 'rgb(255, 133, 192)', icon: 'Dessert', value: 0 },
+	{ color: 'rgb(255, 214, 102)', icon: 'GobletFull', value: 0 },
+	{ color: 'rgb(24, 144, 255)', icon: 'KnifeFork', value: 0 },
+	{ color: 'rgb(255, 192, 105)', icon: 'IceTea', value: 0 },
+	{ color: 'rgb(92, 219, 211)', icon: 'Coffee', value: 0 },
+	{ color: 'rgb(179, 127, 235)', icon: 'IceCream', value: 0 },
+	{ color: 'rgb(255, 133, 192)', icon: 'Dessert', value: 0 },
 ])
 
+const changeValue = () => {
+	actions.value.forEach(item => {
+		item.value = Math.floor(Math.random() * 999) + 1
+	})
+}
 onMounted(() => {
-  actions.value.forEach(item => {
-    item.value = Math.floor(Math.random() * 999) + 1
-  })
+	changeValue()
+	
+	// setInterval(() => {
+	// 	changeValue()
+	// }, 3000)
 })
 </script>
 
@@ -44,6 +55,7 @@ onMounted(() => {
 	width: 100%;
 	overflow: hidden;
 	height: 150px;
+
 	.es-bottom-item {
 		position: absolute;
 		top: 0;
@@ -51,16 +63,16 @@ onMounted(() => {
 		width: 170px;
 		height: 150px;
 		display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		background-color: var(--es-block-bg);
 		font-size: 22px;
-    font-weight: 600;
+		font-weight: 600;
+
 		.es-item-text {
-      margin-top: 16px;
-    }
+			margin-top: 16px;
+		}
 	}
 }
-
 </style>

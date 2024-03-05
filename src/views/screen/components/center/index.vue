@@ -1,10 +1,10 @@
 <template>
 	<div class="es-center">
 		<div class="es-center-top">
-			<Map />
+			<Map v-if="toggle" />
+			<AMap v-else />
 		</div>
 		<Bottom />
-		<!-- <AMap /> -->
 	</div>
 </template>
 
@@ -12,6 +12,9 @@
 import Map from './Map.vue'
 import AMap from './AMap.vue'
 import Bottom from './Bottom.vue'
+import { ref } from "vue"
+const toggle = ref(false)
+toggle.value = Math.random() > 0.5 ? true : false
 </script>
 
 <style lang='scss' scoped>
@@ -21,19 +24,21 @@ import Bottom from './Bottom.vue'
 	height: 1000px;
 	padding: 0 16px;
 	animation: slideAndFade 1.5s;
+
 	.es-center-top {
 		height: calc(100% - 150px);
 	}
 }
 
 @keyframes slideAndFade {
-  0% {
-    transform: translateY(218px);
+	0% {
+		transform: translateY(218px);
 		opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(0);
 		opacity: 1;
-  }
+	}
 }
 </style>

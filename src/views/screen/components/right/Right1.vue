@@ -1,7 +1,7 @@
 <template>
 	<div class="es-block">
 		<Title>热销商品的占比</Title>
-    <div style="width: 100%;height: 90%;">
+		<div style="width: 100%;height: 90%;">
 			<Chart :option="option" />
 		</div>
 	</div>
@@ -63,12 +63,12 @@ const option = ref({
 				}
 			},
 			data: allData[currentIndex.value].children.map(item => {
-        return {
-          name: item.name,
-          value: item.value,
-          children: item.children // 新增加children的原因是为了在tooltip中的formatter的回调函数中,来拿到这个二级分类下的三级分类数据
-        }
-      })
+				return {
+					name: item.name,
+					value: item.value,
+					children: item.children // 新增加children的原因是为了在tooltip中的formatter的回调函数中,来拿到这个二级分类下的三级分类数据
+				}
+			})
 		}
 	]
 })

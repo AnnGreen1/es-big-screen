@@ -16,6 +16,11 @@
 import { computed, onBeforeUnmount, ref } from 'vue'
 import dayjs from 'dayjs'
 import { useScreenStore } from '@/store'
+/**
+ * @author: AnnGreen1
+ * 注意这几个 icon 是如何使用的
+ * light 模式与 dark 模式是不同的图片
+ */
 import darkIcon from '@/assets/images/screen/qiehuan_dark.png'
 import lightIcon from '@/assets/images/screen/qiehuan_light.png'
 import githubIconDark from '@/assets/images/screen/github_dark.svg'
@@ -29,6 +34,10 @@ const currentTime = ref('')
 const timeId = ref()
 function handleChangeTheme() {
 	store.$patch({
+		/**
+		 * @author: AnnGreen1
+		 * 能够实现主题切换是通过 @/views/screen/index.vue 组件里样式中CSS自定义属性及类名实现的，添加 light 类名优先级较高，覆盖变量值，又因为主题的 background 依赖此类名，从而实现主题切换
+		 */
 		theme: store.theme === 'dark' ? 'light' : 'dark'
 	})
 }
