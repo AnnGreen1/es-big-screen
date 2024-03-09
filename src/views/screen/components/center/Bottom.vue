@@ -41,11 +41,11 @@ const changeValue = () => {
 	})
 }
 onMounted(() => {
-	changeValue()
+	// changeValue()
 	
-	// setInterval(() => {
-	// 	changeValue()
-	// }, 3000)
+	setInterval(() => {
+		changeValue()
+	}, 3000)
 })
 </script>
 

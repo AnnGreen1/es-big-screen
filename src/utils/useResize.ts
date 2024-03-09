@@ -11,6 +11,10 @@ type ResizeType = {
 	delay?: number
 }
 
+/**
+ * @author: AnnGreen1
+ * options 是 ResizeType 类型的，并且有一个默认值是 {}
+ */
 export const useResize = (options: ResizeType = {}) => {
 	const {
 		w = width,
