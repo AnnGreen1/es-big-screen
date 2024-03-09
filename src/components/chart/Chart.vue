@@ -23,7 +23,7 @@ const props = defineProps({
 /**
  * @author: AnnGreen1
  * shallowRef 标注类型参考：https://cn.vuejs.org/api/reactivity-advanced.html#shallowref
- * 断言为联合类型（也就是说 chartRef.value 只能是 HTMLElement 类型或 null 类型）
+ * 这不是断言的语法，而是泛型的语法，泛型为联合类型（也就是说 chartRef.value 只能是 HTMLElement 类型或 null 类型），只要把 shallowRef 看做一个函数理解即可。
  */
 const chartRef = shallowRef<HTMLElement | null>(null)
 
